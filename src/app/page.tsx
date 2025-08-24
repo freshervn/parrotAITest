@@ -21,6 +21,27 @@ export default function Home() {
     if (!formData.get("score")) {
       errors.scrore = "Vui lòng nhập điểm";
     }
+    const score = Number(formData.get("score"));
+    if (formData.get("score")) {
+      if (isNaN(score)) {
+        errors.scrore = "Điểm phải là số hợp lệ";
+      } else if (score < 0) {
+        errors.scrore = "Điểm phải lớn hơn hoặc bằng 0";
+      } else if (score > 100) {
+        errors.scrore = "Điểm phải nhỏ hơn hoặc bằng 100";
+      }
+    }
+
+    const time = Number(formData.get("time"));
+    if (formData.get("time")) {
+      if (isNaN(time)) {
+        errors.time = "Thời gian phải là số hợp lệ";
+      } else if (time < 0) {
+        errors.time = "Thời gian phải lớn hơn hoặc bằng 0";
+      } else if (time > 300) {
+        errors.time = "Thời gian phải nhỏ hơn hoặc bằng 300";
+      }
+    }
     if (!formData.get("time")) {
       errors.time = "Vui lòng nhập thời gian";
     }
@@ -78,8 +99,6 @@ export default function Home() {
             <input
               name="score"
               type="number"
-              min={1}
-              max={100}
               step={1}
               defaultValue={state.score || ""}
               className="border rounded px-3 py-2 text-center w-full"
@@ -93,7 +112,6 @@ export default function Home() {
             <input
               name="time"
               type="number"
-              min={1}
               step={1}
               defaultValue={state.time || ""}
               className="border rounded px-3 py-2 text-center w-full"
