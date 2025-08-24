@@ -38,8 +38,6 @@ export default function Home() {
         errors.time = "Thời gian phải là số hợp lệ";
       } else if (time < 0) {
         errors.time = "Thời gian phải lớn hơn hoặc bằng 0";
-      } else if (time > 300) {
-        errors.time = "Thời gian phải nhỏ hơn hoặc bằng 300";
       }
     }
     if (!formData.get("time")) {
