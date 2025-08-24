@@ -23,7 +23,19 @@ const ScoreBoard = ({
           </p>
         ) : (
           orderedScores.map((item, index) => {
-            return <Display key={index} score={item.score} />;
+            return index === 0 ? (
+              <div
+                key={index}
+                className="bg-amber-400 p-4 rounded text-center font-bold text-zinc-950  w-full border-rounded-md"
+              >
+                <p>
+                    Top 1
+                </p>
+                <Display key={index} score={item.score} />
+              </div>
+            ) : (
+              <Display key={index} score={item.score} />
+            );
           })
         )}
       </div>

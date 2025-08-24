@@ -1,4 +1,4 @@
-const Display = ({ score }: { score: number }) => {
+const Display = ({ score }: { score: number}) => {
   switch (true) {
     case score > 90:
       return (
